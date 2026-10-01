@@ -76,6 +76,10 @@ Nothing secret is in this repo, and the app works with no keys at all.
 
 Hawaiian place names come from OpenStreetMap and may be incomplete. Corrections welcome, ideally upstream in OSM.
 
+## Built with Claude
+
+This project was written with [Claude Code](https://claude.com/claude-code), Anthropic's AI coding tool, working from a spec written by Olin Lagon. Olin directed the design, made the product decisions, and tested on a real phone; Claude wrote the code, the tests, and most of this README. Every commit carries a `Co-Authored-By: Claude` trailer. Treat the code the way you would any open source project: read it before you trust it, and open an issue if something is wrong.
+
 ## License
 
 MIT. See `LICENSE`.
