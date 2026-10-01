@@ -63,7 +63,7 @@ Nothing secret is in this repo, and the app works with no keys at all.
 
 - `apps/mobile/.env` (gitignored) holds `VITE_API_BASE`, and optionally `VITE_ESRI_KEY` and `VITE_MAPILLARY_TOKEN`. See `.env.example`.
 - Worker secrets live in Cloudflare (`wrangler secret put`) and in `services/api/.dev.vars` locally (gitignored).
-- Release signing: the keystore is `~/huli-release.keystore` and `apps/mobile/android/keystore.properties` points at it. Both are gitignored. Back the keystore up somewhere safe; without it you can't update the app on the Play Store.
+- Release signing: the keystore is `~/kilo-release.keystore` and `apps/mobile/android/keystore.properties` points at it. Both are gitignored. Back the keystore up somewhere safe; without it you can't update the app on the Play Store.
 - CI scans every push with gitleaks.
 
 ## Credits and data licenses
