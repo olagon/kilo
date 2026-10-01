@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- Huli mark: a compass needle over the island chain -->
+  <rect width="1024" height="1024" fill="#0A1A24"/>
+  <g fill="#0B4F6C" opacity="0.9">
+    <!-- Kauaʻi, Oʻahu, Molokaʻi, Lānaʻi, Maui, Hawaiʻi Island as soft blobs along a diagonal -->
+    <ellipse cx="190" cy="300" rx="58" ry="52"/>
+    <ellipse cx="330" cy="400" rx="78" ry="56" transform="rotate(-20 330 400)"/>
+    <ellipse cx="470" cy="470" rx="62" ry="24" transform="rotate(-10 470 470)"/>
+    <ellipse cx="500" cy="540" rx="30" ry="34"/>
+    <ellipse cx="610" cy="560" rx="88" ry="60" transform="rotate(-25 610 560)"/>
+    <ellipse cx="800" cy="740" rx="135" ry="145" transform="rotate(20 800 740)"/>
+  </g>
+  <g fill="#1E6B8A" opacity="0.5">
+    <ellipse cx="190" cy="300" rx="40" ry="34"/>
+    <ellipse cx="330" cy="400" rx="54" ry="36" transform="rotate(-20 330 400)"/>
+    <ellipse cx="610" cy="560" rx="60" ry="40" transform="rotate(-25 610 560)"/>
+    <ellipse cx="800" cy="740" rx="95" ry="105" transform="rotate(20 800 740)"/>
+  </g>
+  <!-- compass ring -->
+  <circle cx="512" cy="512" r="300" fill="none" stroke="#EEF5F3" stroke-width="14" opacity="0.85"/>
+  <circle cx="512" cy="512" r="262" fill="none" stroke="#EEF5F3" stroke-width="4" opacity="0.35"/>
+  <!-- needle: ʻilima north, sea glass south -->
+  <polygon points="512,228 568,512 512,470 456,512" fill="#F2A900"/>
+  <polygon points="512,796 568,512 512,554 456,512" fill="#EEF5F3"/>
+  <circle cx="512" cy="512" r="34" fill="#0A1A24" stroke="#EEF5F3" stroke-width="10"/>
+</svg>

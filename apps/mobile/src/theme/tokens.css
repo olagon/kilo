@@ -1,0 +1,62 @@
+/* Huli palette. The imagery is the hero; everything else stays quiet. */
+:root {
+  --moana: #0b4f6c;
+  --kai-po: #0a1a24;
+  --kai-kea: #eef5f3;
+  --lehua: #d7263d;
+  --ilima: #f2a900;
+  --kalo: #3f7d3a;
+
+  /* light theme (sea glass) */
+  --bg: var(--kai-kea);
+  --bg-elev: #ffffff;
+  --fg: #0a1a24;
+  --fg-muted: #4a5c66;
+  --line: rgba(10, 26, 36, 0.12);
+  --primary: var(--moana);
+  --on-primary: #ffffff;
+  --accent: #b47c00; /* ʻilima darkened for AA on light bg */
+  --good: var(--kalo);
+  --bad: var(--lehua);
+  --scrim: rgba(10, 26, 36, 0.55);
+
+  --font-ui: 'Inter Variable', Inter, system-ui, -apple-system, Roboto, sans-serif;
+  --font-display: 'Fraunces Variable', Fraunces, 'Inter Variable', serif;
+
+  --radius-pill: 999px;
+  --radius-sheet: 28px;
+  --radius-card: 16px;
+  --tap: 48px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+:root[data-theme='dark'] {
+  --bg: var(--kai-po);
+  --bg-elev: #122a37;
+  --fg: #eef5f3;
+  --fg-muted: #9db3bd;
+  --line: rgba(238, 245, 243, 0.14);
+  --primary: #2a8fb5;
+  --on-primary: #06202c;
+  --accent: var(--ilima);
+  --good: #6fb467;
+  --bad: #ff5a6e;
+  --scrim: rgba(3, 10, 14, 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: var(--kai-po);
+    --bg-elev: #122a37;
+    --fg: #eef5f3;
+    --fg-muted: #9db3bd;
+    --line: rgba(238, 245, 243, 0.14);
+    --primary: #2a8fb5;
+    --on-primary: #06202c;
+    --accent: var(--ilima);
+    --good: #6fb467;
+    --bad: #ff5a6e;
+    --scrim: rgba(3, 10, 14, 0.6);
+  }
+}

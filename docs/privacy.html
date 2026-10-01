@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Huli privacy</title>
+<style>body{font-family:Inter,system-ui,sans-serif;max-width:640px;margin:40px auto;padding:0 20px;line-height:1.55;color:#0a1a24;background:#eef5f3}h1{font-weight:700}a{color:#0b4f6c}</style></head>
+<body>
+<h1>Huli privacy policy</h1>
+<p>Huli is a daily Hawaiʻi geography game. This page says, in plain words, what the app stores.</p>
+<h2>What we store</h2>
+<ul>
+<li>The player name you pick, a random player id made by the app, and a hashed login token.</li>
+<li>Your guesses (a pin location on the map of Hawaiʻi), the distance, points, and the time each round took.</li>
+<li>Report counts, if other players report a name.</li>
+</ul>
+<h2>What we don't do</h2>
+<ul>
+<li>No email, no phone number, no password, no account.</li>
+<li>No ads, no analytics SDKs, no tracking, no selling or sharing of data.</li>
+<li>The app never asks for your location. The game doesn't need it.</li>
+</ul>
+<h2>Where it goes</h2>
+<p>Scores are sent over HTTPS to a Cloudflare Worker and stored in a Cloudflare D1 database so the daily and monthly leaderboards work. Map and imagery tiles are fetched from USGS, AWS Open Data, and OpenFreeMap; those services see your IP address like any website would.</p>
+<h2>Delete your data</h2>
+<p>Settings → Privacy → "Delete my scores and name" removes everything above from the server right away. Reminders are local notifications scheduled on your phone and never leave it.</p>
+<h2>Contact</h2>
+<p>Olin Lagon, via the <a href="https://github.com/olagon/huli">GitHub repository</a>.</p>
+<p><small>Last updated September 30, 2026.</small></p>
+</body></html>

@@ -1,0 +1,21 @@
+name = "huli-api"
+main = "src/index.ts"
+compatibility_date = "2026-09-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "huli"
+database_id = "9c552616-18fd-4085-94ab-aa0c3b235467"
+migrations_dir = "migrations"
+
+[triggers]
+crons = ["5 10 * * *"]
+
+[vars]
+MONTH_RANK_MODE = "best_day"
+DAILY_ROUND_SECONDS = "120"
+DAILY_MODES = '["sky","sky","sky","sky","sky"]'
+
+[observability]
+enabled = true

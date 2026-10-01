@@ -1,0 +1,123 @@
+Daily pool: 2601 spots. Practice pack: 300. Excluded by filter: 263.
+Daily per island:
+  Oʻahu: 785
+  Hawaiʻi Island: 725
+  Maui: 485
+  Kauaʻi: 369
+  Molokaʻi: 167
+  Lānaʻi: 70
+Daily per difficulty:
+  1: 40
+  2: 702
+  3: 918
+  4: 422
+  5: 519
+Practice per island:
+  Oʻahu: 55
+  Hawaiʻi Island: 55
+  Maui: 55
+  Kauaʻi: 51
+  Molokaʻi: 43
+  Lānaʻi: 41
+Fun facts attached: 27
+Excluded names (first 100):
+  Hickam
+  Kamalino
+  Lehua Landing
+  Nonopapa
+  Honokanai'a Base Camp
+  Puʻuwai
+  Naupaka
+  Poleho Point
+  Kīkepa Point
+  Schofield Barracks
+  Wheeler Army Airfield
+  Kamakalepo Point
+  Paliuli
+  Pāhau Point
+  ʻOʻiamoi Point
+  Nonopapa
+  Makahūʻena Point
+  Poʻooneone Point
+  Makaʻalae
+  Kiʻi
+  Lae ʻO Honokoʻa
+  ʻIliʻililoa
+  Lae ʻO Kūakaʻiwa
+  Lae ʻO Kākā
+  Lae ʻO Kaule
+  Keanakeiki
+  Laepakī
+  ʻAleʻale
+  Kiʻi
+  Keʻelinawi Point
+  Ahupū Bay
+  Hakioawa
+  Honokanaiʻa
+  Honoko‘a Bay
+  Kanapou Bay
+  Kamōhio Bay
+  Keawanui Bay
+  Waikahalulu Bay
+  Keoneuli
+  Kūheia Bay
+  Keamano Bay
+  Ka‘aku‘u Bay
+  Honukanaenae
+  Kuheeia Bay
+  Ahupū Iki Bay
+  Water Tank Bay
+  Mount Lehua
+  Kāwaʻewaʻe Hill
+  Kīkepa Point
+  Mount Mauʻuloa
+  Puʻu Moiwi
+  Puʻu Lai
+  Puʻu Moaʻulanui
+  Puʻukahua
+  Lua ʻO Keaualalo
+  Puʻu Moaʻulaiki
+  Pōleho Point
+  Naupaka Point
+  Kahauna
+  5 Graves Beach
+  Mount Kāʻeo
+  Mount Pānīʻau
+  Pueo Point
+  Kawaihoa
+  Mount Kaunuakalā
+  Kaunuopou Point
+  Kaunuokahe Point
+  Kaunuokahe Point
+  Puʻukōaʻe Point
+  Lae ʻO Hālona
+  Pākaua Point
+  Leʻahi Point
+  Puʻuhonuaʻula
+  Puʻuʻalalā Hill
+  Kawa Point
+  Keʻelināwili
+  Kalānei
+  Kālehu Point
+  Kaununui
+  Kōwahi Point
+  Puhianenue Point
+  Southwest Point
+  Wiliwilipeʻapeʻa Point
+  Lae ʻO Kealaikahiki
+  Lae ʻO Nākoholā
+  ʻŌʻiamoi
+  Puʻuhonua Point
+  Puhi ʻO Kōheohala
+  Poʻooneone
+  Kalama
+  Kanuku
+  Lae ʻO Hiluʻula
+  Lae ʻO Hilukea
+  Puʻuhonuaʻula
+  Black 2
+  Puʻulua
+  BM 855
+  Kāʻali Cliff
+  Keanauhi Valley
+  Haikioawa Landing

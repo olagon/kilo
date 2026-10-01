@@ -1,0 +1,19 @@
+{
+  "name": "huli",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Huli: a daily Hawaiʻi geography game. Five places, five guesses, same for everyone.",
+  "license": "MIT",
+  "packageManager": "pnpm@10.17.1",
+  "engines": { "node": ">=20.19" },
+  "scripts": {
+    "build": "pnpm -r --filter ./packages/shared --filter ./apps/mobile build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "api:dev": "pnpm --filter @huli/api dev",
+    "api:deploy": "pnpm --filter @huli/api deploy",
+    "mobile:dev": "pnpm --filter @huli/mobile dev",
+    "mobile:android": "pnpm --filter @huli/mobile android"
+  }
+}

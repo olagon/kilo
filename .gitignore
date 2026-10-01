@@ -1,0 +1,43 @@
+# dependencies and build output
+node_modules/
+dist/
+build/
+.wrangler/
+*.tsbuildinfo
+.turbo/
+coverage/
+test-results/
+
+# secrets: never commit these
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+keystore.properties
+*.keystore
+*.jks
+*.p12
+*.pem
+secrets/
+
+# Android
+apps/mobile/android/.gradle/
+apps/mobile/android/app/build/
+apps/mobile/android/build/
+apps/mobile/android/capacitor-cordova-android-plugins/build/
+apps/mobile/android/local.properties
+apps/mobile/android/.idea/
+apps/mobile/android/*.iml
+apps/mobile/android/app/*.iml
+apps/mobile/android/app/release/
+apps/mobile/android/app/src/main/assets/public/
+apps/mobile/android/app/src/main/assets/capacitor.config.json
+apps/mobile/android/app/src/main/assets/capacitor.plugins.json
+
+# tooling
+.DS_Store
+*.log
+tools/pool-builder/cache/
+screens/
+apps/mobile/public/maplibre/
