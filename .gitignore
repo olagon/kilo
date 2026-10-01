@@ -41,3 +41,7 @@ apps/mobile/android/app/src/main/assets/capacitor.plugins.json
 tools/pool-builder/cache/
 /screens/
 apps/mobile/public/maplibre/
+
+# big media stays out of git; the promo video is attached to GitHub Releases instead
+store/promo/*.mp4
+tools/promo/raw/
