@@ -87,7 +87,7 @@ def fullbleed(raw, zoom=1.0, dx=0.0):
 def phone_content(raw):
     return raw.crop((0, 95, 1080, 2340))  # under the status bar, above the nav pill
 
-PHONE_H = 1560 if V else 920
+PHONE_H = 1180 if V else 920  # vertical: 62% of frame height, bottom edge at y=1800
 def phone(raw, scale=1.0, alpha=1.0, cx=None, cy=None):
     """Device mockup with the app screen inside. Returns an RGBA layer the size of the frame."""
     content = phone_content(raw)
@@ -104,6 +104,16 @@ def phone(raw, scale=1.0, alpha=1.0, cx=None, cy=None):
     if alpha < 1:
         a = layer.split()[3].point(lambda p: int(p * alpha)); layer.putalpha(a)
     return layer
+
+def side_panel(img):
+    """Landscape: solid night column on the left with a soft right edge, so type never sits on footage."""
+    w = 760; feather = 160
+    g = Image.new('L', (W, 1)); px = [255] * W
+    for i in range(W):
+        if i > w - feather: px[i] = int(255 * clamp01((w + feather - i) / (2 * feather)) ** 1.2) if i < w + feather else 0
+    g.putdata(px)
+    layer = Image.new('RGBA', (W, H), NIGHT + (0,)); layer.putalpha(g.resize((W, H)))
+    img.alpha_composite(layer)
 
 def blur_bg(raw):
     """Landscape background: the footage, blown up, blurred and darkened."""
@@ -146,26 +156,51 @@ PILL = font('Inter-SemiBold', 38 if V else 34)
 SMALL = font('Inter-Regular', 34 if V else 30)
 NUM = font('Fraunces-Bold', 200 if V else 170)
 
-def caption(img, t, t0, t1, lines, fnt=BIG, sub=None, pos='bottom'):
+def backing(img, y0, y1, alpha=1.0, strength=0.72):
+    """Soft night band behind a text block: solid in the middle, fading to 0 at both edges."""
+    feather = 90
+    g = Image.new('L', (1, H))
+    px = [0] * H
+    for i in range(max(0, int(y0 - feather)), min(H, int(y1 + feather))):
+        k = 1.0
+        if i < y0: k = (i - (y0 - feather)) / feather
+        elif i > y1: k = ((y1 + feather) - i) / feather
+        px[i] = int(255 * strength * alpha * clamp01(k))
+    g.putdata(px)
+    layer = Image.new('RGBA', (W, H), NIGHT + (0,)); layer.putalpha(g.resize((W, H)))
+    img.alpha_composite(layer)
+
+def rule(d, x, y, alpha):
+    d.rounded_rectangle([x, y, x + 96, y + 8], 4, fill=ILIMA + (int(255 * alpha),))
+
+def caption(img, t, t0, t1, lines, fnt=BIG, sub=None, pos='bottom', backed=True):
     a, dy = anim(t, t0, t1)
     if a <= 0: return
-    d = ImageDraw.Draw(img)
+    lh = int(fnt.size * 1.08)
+    block_h = len(lines) * lh + (SUB.size + 18 if sub else 0) + 40
     if V:
-        x = 72; align = 'left'
-        y = (H - 420 - len(lines) * int(fnt.size * 1.08)) if pos == 'bottom' else 200
+        x = 72
+        band_h = len(lines) * lh + (SUB.size + 18 if sub else 0) + 40
+        y = (H - 420 - len(lines) * lh) if pos == 'bottom' else 120 + (500 - band_h) // 2
     else:
-        x = 110; align = 'left'; y = 300 if pos != 'center' else 380
-    text_block(d, lines, x, int(y + dy), fnt, KEA, align, alpha=a)
+        x = 110; y = 300 if pos != 'center' else 380
+    y = int(y + dy)
+    if backed: backing(img, y - 30, y + block_h, a)
+    d = ImageDraw.Draw(img)
+    text_block(d, lines, x, y, fnt, KEA, 'left', alpha=a)
+    yy = y + len(lines) * lh + 14
     if sub:
-        text_block(d, [sub], x, int(y + dy + len(lines) * int(fnt.size * 1.08) + 18), SUB, (201, 219, 230), align, alpha=a)
+        text_block(d, [sub], x, yy + 4, SUB, (201, 219, 230), 'left', alpha=a)
+        yy += SUB.size + 18
+    rule(d, x, yy + 10, a)
 
 def pill(img, t, t0, t1, text, x, y):
     a, dy = anim(t, t0, t1, 0.25, 0.2)
     if a <= 0: return
     d = ImageDraw.Draw(img)
-    bb = PILL.getbbox(text); w = bb[2] - bb[0] + 56; h = PILL.size + 32
-    d.rounded_rectangle([x, y + dy, x + w, y + dy + h], h // 2, fill=(10, 26, 36, int(190 * a)))
-    d.text((x + 28, y + dy + 14), text, font=PILL, fill=KEA + (int(255 * a),))
+    bb = PILL.getbbox(text); w = bb[2] - bb[0] + 48; h = PILL.size + 48
+    d.rounded_rectangle([x, y + dy, x + w, y + dy + h], h // 2, fill=(10, 26, 36, int(217 * a)))
+    d.text((x + 24 - bb[0], y + dy + 24 - bb[1]), text, font=PILL, fill=KEA + (int(255 * a),))
 
 # ---------- scenes ----------
 # (name, start, end). Clip times are offsets into the extracted frame sequences.
@@ -218,18 +253,22 @@ def frame(t):
                 scrim(img, strength=110)
             else:
                 img.alpha_composite(blur_bg(raw).convert('RGBA') if not V else Image.new('RGBA', (W, H), NIGHT + (255,)))
+                if not V: side_panel(img)
                 if not V and name in ('sky', 'montage'):
-                    # landscape: wide crop of the footage on the right, type on the left
+                    # landscape: wide crop of the footage on the right, type on the left, night panel under the type
                     src = raw.crop((0, 600, 1080, 1800)).resize((1080, 1200), Image.BILINEAR)
                     img.alpha_composite(rounded(src.convert('RGBA'), 48), (W - 1080 - 80, (H - 1200) // 2))
                 else:
                     intro = not sc.get('no_intro')
                     s = 1.0 if (st > 0.6 or not intro) else 1.08 - 0.08 * ease_out(st / 0.6)
                     al = 1.0 if (st > 0.4 or not intro) else ease_out(st / 0.4)
-                    img.alpha_composite(phone(raw, s, al, cx=(W // 2 if V else W - 560), cy=(H // 2 + (60 if V else 0))))
-            # captions per scene
+                    bezel = int(16 * s) + 2
+                    cy_v = 1800 - bezel - int(PHONE_H * s) // 2   # screen bottom = 1800 - bezel, so the frame's bottom corners sit at y=1800
+                    img.alpha_composite(phone(raw, s, al, cx=(W // 2 if V else W - 560), cy=(cy_v if V else H // 2)))
+            # captions per scene. Phone scenes already sit on night (vertical top band / landscape panel): no backing needed there.
+            on_night = name in ('phone', 'guess') or not V
             for c in sc.get('captions', []):
-                caption(img, t, c['t0'], c['t1'], c['lines'], MID if c.get('size') == 'mid' else BIG, c.get('sub'), c.get('pos', 'bottom'))
+                caption(img, t, c['t0'], c['t1'], c['lines'], MID if c.get('size') == 'mid' else BIG, c.get('sub'), c.get('pos', 'bottom'), backed=not on_night)
             if sc.get('pill'):
                 px = 72 if V else 110; py = (H - 300) if V else 760
                 pill(img, t, sc['start'] + 0.15, sc['end'], sc['pill'], px, py)
@@ -265,7 +304,20 @@ def frame(t):
                     text_block(d, [dist[i]], int(x), int(y + size / 2 + 14), SMALL, (157, 179, 189), 'center', shadow=False)
             a2, dy = anim(t, sc['start'] + 2.8, sc['end'])
             if a2 > 0:
-                text_block(d, ['Share your day,', 'spoiler free.'], cx, int((y0 + size + 160 if V else y0 + size + 110) + dy), MID, KEA, 'center', alpha=a2, shadow=False)
+                text_block(d, ['Share your score,', 'not the answers.'], cx, int((y0 + size + 160 if V else y0 + size + 110) + dy), MID, KEA, 'center', alpha=a2, shadow=False)
+        elif name == 'values':
+            d = ImageDraw.Draw(img)
+            lines = ['Free.', 'Open source.', 'Zero tracking.']
+            fnt = font('Fraunces-Bold', 150 if V else 120); lh = int(fnt.size * 1.15)
+            y0 = (H - 3 * lh) // 2
+            for i, line in enumerate(lines):
+                k = ease_out((st - 0.15 - i * 0.75) / 0.45)
+                if k <= 0: continue
+                sl = int((1 - k) * 90)
+                text_block(d, [line], W // 2 + sl, y0 + i * lh, fnt, KEA if i < 2 else ILIMA, 'center', alpha=k, shadow=False)
+            if st > (sc['end'] - sc['start']) - 0.5:
+                f = clamp01((st - ((sc['end'] - sc['start']) - 0.5)) / 0.5)
+                img.alpha_composite(Image.new('RGBA', (W, H), NIGHT + (int(255 * f),)))
         elif name == 'end':
             d = ImageDraw.Draw(img)
             a = ease_out(st / 0.7)
@@ -281,8 +333,8 @@ def frame(t):
             yy = y + ic.height + 40 + wm.height + 60
             text_block(d, ['Think you know the islands?'], cx, int(yy + dy), MID, KEA, 'center', alpha=a2, shadow=False)
             a3, dy3 = anim(t, sc['start'] + 1.3, sc['end'] + 1)
-            text_block(d, ['Free on Google Play  ·  No account  ·  No ads'], cx, int(yy + MID.size + 60 + dy3), SMALL, (157, 179, 189), 'center', alpha=a3, shadow=False)
-            text_block(d, ['olagon.github.io/kilo'], cx, int(yy + MID.size + 60 + SMALL.size + 24 + dy3), SMALL, ILIMA, 'center', alpha=a3, shadow=False)
+            text_block(d, ['Free and open source  ·  Zero tracking'], cx, int(yy + MID.size + 60 + dy3), SMALL, (157, 179, 189), 'center', alpha=a3, shadow=False)
+            text_block(d, ['github.com/olagon/kilo'], cx, int(yy + MID.size + 60 + SMALL.size + 24 + dy3), SMALL, ILIMA, 'center', alpha=a3, shadow=False)
             if st > (sc['end'] - sc['start']) - 1.0:  # fade to night
                 f = clamp01((st - ((sc['end'] - sc['start']) - 1.0)) / 1.0)
                 img.alpha_composite(Image.new('RGBA', (W, H), NIGHT + (int(255 * f),)))

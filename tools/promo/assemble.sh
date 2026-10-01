@@ -22,15 +22,15 @@ for clip,t in need.items():
     print('frames',clip,len(os.listdir(d)))
 PYEOF
 # 2. music, with cues matched to the cut
-$PY $HERE/music.py $SCRATCH/promo/music.wav 43.5 '{"pin_t":22.6,"reveal_t":27.0,"whoosh_ts":[28.4,29.8,31.2,32.6],"tick_ts":[34.2,34.6,35.0,35.4,35.8]}'
+$PY $HERE/music.py $SCRATCH/promo/music.wav 46.8 '{"pin_t":22.6,"reveal_t":27.0,"whoosh_ts":[28.4,29.8,31.2,32.6],"tick_ts":[34.2,34.6,35.0,35.4,35.8]}'
 ffmpeg -y -v error -i $SCRATCH/promo/music.wav -af "loudnorm=I=-14:TP=-1.2:LRA=11" -ar 48000 $SCRATCH/promo/music-norm.wav
 # 3. render both layouts
 $PY $HERE/render.py vertical $OUT/kilo-promo-vertical.mp4 $SCRATCH/promo/music-norm.wav
 $PY $HERE/render.py landscape $OUT/kilo-promo-landscape.mp4 $SCRATCH/promo/music-norm.wav
 # 4. thumbnail from the end card
-ffmpeg -y -v error -ss 41.2 -i $OUT/kilo-promo-landscape.mp4 -frames:v 1 -vf scale=1280:720 $OUT/kilo-promo-thumb.png
+ffmpeg -y -v error -ss 44.6 -i $OUT/kilo-promo-landscape.mp4 -frames:v 1 -vf scale=1280:720 $OUT/kilo-promo-thumb.png
 # 5. QA stills
 mkdir -p $SCRATCH/promo/qa; rm -f $SCRATCH/promo/qa/*.jpg
-for t in 1.6 4.5 8 12 18 23 27 29 33 36 40.5; do ffmpeg -y -v error -ss $t -i $OUT/kilo-promo-vertical.mp4 -frames:v 1 -vf scale=360:-1 $SCRATCH/promo/qa/v-$t.jpg; ffmpeg -y -v error -ss $t -i $OUT/kilo-promo-landscape.mp4 -frames:v 1 -vf scale=640:-1 $SCRATCH/promo/qa/l-$t.jpg; done
+for t in 1.6 4.5 8 12 17 20 23 26 29 33 36 39.6 41.0 44.6; do ffmpeg -y -v error -ss $t -i $OUT/kilo-promo-vertical.mp4 -frames:v 1 -vf scale=360:-1 $SCRATCH/promo/qa/v-$t.jpg; ffmpeg -y -v error -ss $t -i $OUT/kilo-promo-landscape.mp4 -frames:v 1 -vf scale=640:-1 $SCRATCH/promo/qa/l-$t.jpg; done
 ffprobe -v error -show_entries format=duration -show_entries stream=codec_name,width,height,r_frame_rate,sample_rate -of csv=p=0 $OUT/kilo-promo-vertical.mp4
 echo ASSEMBLE_DONE

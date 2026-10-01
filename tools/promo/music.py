@@ -76,7 +76,7 @@ def build(duration, pin_t=None, reveal_t=None, whoosh_ts=(), tick_ts=()):
     beats = int(duration / BEAT)
     for b in range(beats):
         t0 = b * BEAT
-        if t0 < BAR * 1 or t0 > duration - 4.5: continue
+        if t0 < BAR * 1 or t0 > duration - 7.8: continue  # pulse drops out for the values beat and end card
         if b % 2 == 0:
             k = int(SR * 0.25); t = np.arange(k) / SR
             kick = 0.5 * np.sin(2 * np.pi * (55 + 40 * np.exp(-t * 30)) * t) * np.exp(-t * 18)
@@ -91,7 +91,7 @@ def build(duration, pin_t=None, reveal_t=None, whoosh_ts=(), tick_ts=()):
     t = 9.0
     phrase = [PENTA[2], PENTA[4], PENTA[3], PENTA[1], PENTA[4], PENTA[5], PENTA[4], PENTA[2]]
     i = 0
-    while t < duration - 6:
+    while t < duration - 9:
         m = phrase[i % len(phrase)]
         if 27 <= t < 33: m += 12 if m < 76 else 0  # lift for the montage
         dur = BEAT * (1.5 if i % 4 == 3 else 0.75)
@@ -101,8 +101,11 @@ def build(duration, pin_t=None, reveal_t=None, whoosh_ts=(), tick_ts=()):
         t += dur + (BEAT * 0.25 if i % 4 == 3 else 0)
         i += 1
     # resolve: a final G chord swell on the end card
+    # values beat: three soft stabs landing with the lines, then the resolving G swell on the end card
+    for j, m in enumerate([62, 66, 69]):
+        place(mix, note(midi(m), 0.9, amp=0.09, attack=0.01, decay=0.5, sustain=0.3, release=0.8), duration - 7.65 + j * 0.75)
     for m in CHORDS['G'][1:]:
-        place(mix, note(midi(m), 3.0, amp=0.07, attack=0.4, decay=1.0, sustain=0.6, release=1.5), duration - 4.2)
+        place(mix, note(midi(m), 3.4, amp=0.07, attack=0.5, decay=1.0, sustain=0.6, release=1.8), duration - 4.4)
     # sound design
     if pin_t is not None:
         k = int(SR * 0.06); tq = np.arange(k) / SR
