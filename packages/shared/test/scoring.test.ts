@@ -35,9 +35,16 @@ describe('share', () => {
     expect(tierForPoints(1000)).toBe('orange');
     expect(tierForPoints(999)).toBe('red');
   });
-  it('text', () => {
-    expect(shareText({ dateLabel: 'Oct 6', total: 18420, rounds: [5000, 4600, 3200, 1500, 100] })).toBe(
-      'Huli Oct 6\n18,420 / 25,000\n🟩🟩🟨🟧🟥',
+  it('text has a day number, grid, a spoiler free hook, and the link', () => {
+    const text = shareText({
+      dayNumber: 6, dateLabel: 'Oct 6', total: 18420, link: 'https://olagon.github.io/kilo',
+      rounds: [{ points: 5000, distanceM: 30 }, { points: 4600, distanceM: 1200 }, { points: 3200, distanceM: 9000 }, { points: 1500, distanceM: 30000 }, { points: 100, distanceM: 98000 }],
+      distances: ['98 ft', '0.7 mi', '5.6 mi', '19 mi', '61 mi'],
+    });
+    expect(text).toBe(
+      'Kilo #6 · Oct 6\n🟩🟩🟨🟧🟥  18,420 / 25,000\nNailed round 1 within 98 ft. Round 5 got me by 61 mi.\n5 places in Hawaiʻi. Same 5 for everyone. New at midnight.\nThink you know the islands? https://olagon.github.io/kilo',
     );
+    expect(text).not.toMatch(/Oʻahu|Maui|Kauaʻi/);
   });
+
 });

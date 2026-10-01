@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
-import { Share } from '@capacitor/share';
-import { hawaiiMonth, ISLAND_BY_ID, shareText, shortDateLabel, tierForPoints, type DayBoard, type MonthBoard } from '@huli/shared';
+import { hawaiiMonth, ISLAND_BY_ID, shortDateLabel, tierForPoints, type DayBoard, type MonthBoard } from '@huli/shared';
 import { api } from '../api/client';
 import { NextSetCountdown, TopBar } from '../components/ui';
 import { formatDistance, formatPoints } from '../format';
 import { t } from '../i18n/t';
 import { todayHawaii, useStore } from '../store';
 
-const REPO = 'https://github.com/olagon/huli-geo';
+import { shareDay } from '../share';
 
 export function Summary() {
-  const { history, settings, go } = useStore();
+  const { history, settings, session, go } = useStore();
+  const [toast, setToast] = useState<string | null>(null);
   const today = todayHawaii();
   const rec = history.find((h) => h.date === today);
   const [day, setDay] = useState<DayBoard | null>(null);
@@ -29,11 +29,10 @@ export function Summary() {
   const rank = (b: { me: { rank: number } | null; players: number } | null) => (b?.me ? t('summary.rank', { rank: b.me.rank, n: b.players }) : t('summary.rank_none'));
 
   async function share() {
-    const text = shareText({ dateLabel: shortDateLabel(today), total: rec!.total, rounds: rec!.rounds.map((r) => r.points), link: REPO });
-    try {
-      await Share.share({ text });
-    } catch {
-      try { await navigator.clipboard.writeText(text); } catch { /* no clipboard */ }
+    const r = await shareDay(rec!, session?.name ?? '', settings.units);
+    if (r === 'copied') {
+      setToast(t('summary.copied'));
+      setTimeout(() => setToast(null), 2500);
     }
   }
 
@@ -72,6 +71,7 @@ export function Summary() {
           <p style={{ textAlign: 'center', marginTop: 8 }}><NextSetCountdown /></p>
         </div>
       </div>
+      {toast && <div className="pill-scrim fade-in" role="status" style={{ position: 'fixed', left: 20, right: 20, bottom: 'calc(var(--safe-bottom) + 20px)', textAlign: 'center', zIndex: 50 }}>{toast}</div>}
     </div>
   );
 }

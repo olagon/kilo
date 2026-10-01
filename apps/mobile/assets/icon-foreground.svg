@@ -1,8 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-  <g transform="translate(512 512) scale(0.62) translate(-512 -512)">
-    <circle cx="512" cy="512" r="300" fill="none" stroke="#EEF5F3" stroke-width="18" opacity="0.9"/>
-    <polygon points="512,210 575,512 512,465 449,512" fill="#F2A900"/>
-    <polygon points="512,814 575,512 512,559 449,512" fill="#EEF5F3"/>
-    <circle cx="512" cy="512" r="38" fill="#0A1A24" stroke="#EEF5F3" stroke-width="12"/>
+  <defs>
+    <linearGradient id="pin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc83d"/><stop offset="1" stop-color="#e59a00"/></linearGradient>
+    <linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6aa65a"/><stop offset="1" stop-color="#2f6b2c"/></linearGradient>
+    <linearGradient id="ridge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9ccf88"/><stop offset="1" stop-color="#3f7d3a"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#000" flood-opacity="0.45"/></filter>
+  </defs>
+  <g transform="translate(512 512) scale(0.72) translate(-512 -512)">
+    <g filter="url(#shadow)">
+      <path fill="url(#land)" d="M150 560 C 150 470, 250 420, 360 430 C 440 436, 470 400, 560 392 C 680 382, 800 440, 860 520 C 910 590, 870 680, 760 700 C 640 722, 560 690, 470 700 C 360 712, 260 700, 200 660 C 165 636, 150 600, 150 560 Z"/>
+    </g>
+    <path fill="url(#ridge)" d="M330 560 L 410 470 L 470 520 L 540 440 L 620 520 L 690 480 L 750 570 C 640 590, 480 600, 330 560 Z"/>
+    <g filter="url(#shadow)">
+      <path fill="url(#pin)" d="M512 250 C 418 250, 352 320, 352 410 C 352 520, 512 690, 512 690 C 512 690, 672 520, 672 410 C 672 320, 606 250, 512 250 Z"/>
+      <circle cx="512" cy="412" r="66" fill="#0a1a24"/>
+      <circle cx="512" cy="412" r="36" fill="#eef5f3"/>
+    </g>
   </g>
 </svg>

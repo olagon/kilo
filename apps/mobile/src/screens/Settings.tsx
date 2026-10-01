@@ -10,7 +10,7 @@ import { requestPermission, reschedule } from '../notifications';
 import { todayHawaii, useStore, type Settings as S } from '../store';
 
 const VERSION = '1.0.0';
-const REPO = 'https://github.com/olagon/huli-geo';
+const REPO = 'https://github.com/olagon/kilo';
 
 function Row({ label, sub, children }: { label: string; sub?: string; children?: React.ReactNode }) {
   return (
@@ -102,7 +102,7 @@ export function Settings() {
 
         <button className="row" style={{ width: '100%', textAlign: 'left' }} onClick={() => go('about')}><span className="grow label">{t('settings.about')}</span><Chevron /></button>
         <a className="row" href={REPO} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}><span className="grow label">{t('settings.source')}</span><Chevron /></a>
-        <a className="row" href="market://details?id=com.olinlagon.huli" style={{ textDecoration: 'none', color: 'inherit' }}><span className="grow label">{t('settings.rate')}</span><Chevron /></a>
+        <a className="row" href="market://details?id=com.olinlagon.kilo" style={{ textDecoration: 'none', color: 'inherit' }}><span className="grow label">{t('settings.rate')}</span><Chevron /></a>
         <button className="row muted" style={{ width: '100%', textAlign: 'left' }} onClick={() => setTaps((n) => n + 1)} aria-label={t('settings.version', { v: VERSION })}>
           <span className="grow sub">{t('settings.version', { v: VERSION })}</span>
         </button>

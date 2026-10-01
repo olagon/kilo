@@ -1,5 +1,5 @@
 {
-  "app.name": { "text": "Huli", "review": true },
+  "app.name": { "text": "Kilo", "review": true },
   "app.tagline": "Five places in Hawaiʻi. Where are you?",
 
   "welcome.title": "Pick a player name",
@@ -81,6 +81,7 @@
   "summary.rank": "#{rank} of {n}",
   "summary.rank_none": "—",
   "summary.share": "Share",
+  "summary.copied": "Copied. Paste it anywhere.",
   "summary.leaderboard": "See leaderboard",
   "summary.home": "Home",
   "summary.perfect_day": "A perfect day.",
@@ -120,7 +121,7 @@
   "settings.reminder_time": "Reminder time",
   "settings.only_unplayed": "Only remind me if I haven't played yet",
   "settings.evening": "Evening streak reminder",
-  "settings.notif_denied": "Reminders are off in system settings. Open Settings, Notifications, Huli to turn them on.",
+  "settings.notif_denied": "Reminders are off in system settings. Open Settings, Notifications, Kilo to turn them on.",
   "settings.units": "Distance",
   "settings.units_mi": "Miles",
   "settings.units_km": "Kilometers",
@@ -136,7 +137,7 @@
   "settings.data_saver_hint": "Lower resolution imagery, terrain off",
   "settings.replay": "Replay tutorial",
   "settings.privacy": "Privacy",
-  "settings.privacy_body": "Huli stores your player name, a random id, your guesses, and your scores. Nothing else. No email, no location permission, no ads, no tracking.",
+  "settings.privacy_body": "Kilo stores your player name, a random id, your guesses, and your scores. Nothing else. No email, no location permission, no ads, no tracking.",
   "settings.delete": "Delete my scores and name",
   "settings.delete_confirm": "This removes your name and every score from the boards. There's no undo.",
   "settings.delete_yes": "Delete everything",
@@ -152,7 +153,7 @@
   "settings.debug_glyphs": "Glyph test",
 
   "about.title": "About",
-  "about.body": { "text": "Huli drops you somewhere in Hawaiʻi five times a day and asks one thing: where are you? It's a small way to celebrate ʻāina, learn place names, and have fun every day.", "review": true },
+  "about.body": { "text": "Kilo drops you somewhere in Hawaiʻi five times a day and asks one thing: where are you? It's a small way to celebrate ʻāina, learn place names, and have fun every day.", "review": true },
   "about.made": "Made by Olin Lagon",
   "about.source": "Source code on GitHub",
   "about.credits": "Credits",

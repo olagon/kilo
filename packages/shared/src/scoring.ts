@@ -39,10 +39,41 @@ export function tierForPoints(points: number): ResultTier {
 
 const TIER_EMOJI: Record<ResultTier, string> = { green: '🟩', yellow: '🟨', orange: '🟧', red: '🟥' };
 
-/** Spoiler free share text, Wordle style. */
-export function shareText(opts: { dateLabel: string; total: number; rounds: number[]; link?: string }) {
-  const grid = opts.rounds.map((p) => TIER_EMOJI[tierForPoints(p)]).join('');
-  const lines = [`Huli ${opts.dateLabel}`, `${opts.total.toLocaleString('en-US')} / 25,000`, grid];
-  if (opts.link) lines.push(opts.link);
+/** First day Kilo went live, Hawaiʻi time. Day numbers count from here. */
+export const LAUNCH_DATE = '2026-10-01';
+
+export interface ShareRound {
+  points: number;
+  distanceM: number;
+}
+
+export interface ShareInput {
+  /** Kilo day number, 1 on launch day. */
+  dayNumber: number;
+  dateLabel: string;
+  total: number;
+  rounds: ShareRound[];
+  /** Formatted distances, same order as rounds, e.g. "320 ft". */
+  distances: string[];
+  link: string;
+}
+
+export function shareGrid(rounds: { points: number }[]): string {
+  return rounds.map((r) => TIER_EMOJI[tierForPoints(r.points)]).join('');
+}
+
+/**
+ * Spoiler free share text. Never names a place or island (others may still be playing today),
+ * but gives one concrete brag or stumble so people want to try.
+ */
+export function shareText(s: ShareInput): string {
+  const best = s.rounds.reduce((b, r, i) => (r.points > s.rounds[b]!.points ? i : b), 0);
+  const worst = s.rounds.reduce((w, r, i) => (r.points < s.rounds[w]!.points ? i : w), 0);
+  const lines = [`Kilo #${s.dayNumber} · ${s.dateLabel}`, `${shareGrid(s.rounds)}  ${s.total.toLocaleString('en-US')} / 25,000`];
+  if (s.total >= 25000) lines.push('Perfect day. All 5 within 50 m.');
+  else if (s.rounds[best]!.points >= 4500 && best !== worst) lines.push(`Nailed round ${best + 1} within ${s.distances[best]}. Round ${worst + 1} got me by ${s.distances[worst]}.`);
+  else if (s.rounds[best]!.points >= 4500) lines.push(`Closest guess: ${s.distances[best]}.`);
+  else lines.push(`Closest guess: ${s.distances[best]}. The islands won today.`);
+  lines.push('5 places in Hawaiʻi. Same 5 for everyone. New at midnight.', `Think you know the islands? ${s.link}`);
   return lines.join('\n');
 }

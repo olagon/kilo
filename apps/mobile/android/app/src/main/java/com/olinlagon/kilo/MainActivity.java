@@ -1,4 +1,4 @@
-package com.olinlagon.huli;
+package com.olinlagon.kilo;
 
 import com.getcapacitor.BridgeActivity;
 

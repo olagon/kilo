@@ -1,4 +1,4 @@
-# Huli API
+# Kilo API
 
 Cloudflare Worker (Hono + Zod) over D1. Free plan is enough until a few thousand players a day.
 

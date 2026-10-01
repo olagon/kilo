@@ -1,7 +1,7 @@
 import { TopBar } from '../components/ui';
 import { t } from '../i18n/t';
 
-const REPO = 'https://github.com/olagon/huli-geo';
+const REPO = 'https://github.com/olagon/kilo';
 
 const CREDITS: [string, string][] = [
   ['USGS The National Map', 'Public domain imagery (USGSImageryOnly)'],

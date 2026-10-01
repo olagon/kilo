@@ -12,7 +12,7 @@ export const HAWAII_BOUNDS: [number, number, number, number] = [-160.6, 18.7, -1
 
 export const DEFAULT_SKY_ZOOM = 16.5;
 export const DEFAULT_SKY_PITCH = 55;
-export const MAX_SKY_PITCH = 70;
+export const MAX_SKY_PITCH = 85;
 
 export const NAME_MIN = 3;
 export const NAME_MAX = 18;

@@ -14,7 +14,7 @@ const CACHE = join(HERE, '..', 'cache');
 const OUT = join(HERE, '..', 'out');
 const PRACTICE_OUT = join(HERE, '..', '..', '..', 'apps', 'mobile', 'public', 'practice-pack.json');
 const BBOX = '(18.9,-160.3,22.3,-154.8)';
-const UA = 'huli-pool-builder/0.1 (olin.lagon@gmail.com)';
+const UA = 'kilo-pool-builder/0.1 (olin.lagon@gmail.com)';
 
 export const EXCLUDE_NAME =
   /heiau|burial|cemetery|grave|church|temple|mission|puʻuhonua|pu'uhonua|sacred|shrine|memorial park|mortuary|military|naval|\bbase\b|barracks|army|air force|camp smith|pearl harbor|hickam|schofield|kāneʻohe bay marine|bellows|prison|correctional|jail|detention|refuge\b.*wildlife|niʻihau|ni'ihau|kahoʻolawe|kaho'olawe/i;

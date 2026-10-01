@@ -21,7 +21,7 @@ describe('name rules', () => {
     expect(nameKey('KAI')).toBe('kai');
   });
   it('reserved', () => {
-    for (const n of ['admin', 'Admin1', 'Moderator', 'official', 'Huli team', 'huli staff']) {
+    for (const n of ['admin', 'Admin1', 'Moderator', 'official', 'Kilo team', 'kilo staff']) {
       expect(validateName(n), n).toEqual({ ok: false, error: 'reserved' });
     }
   });

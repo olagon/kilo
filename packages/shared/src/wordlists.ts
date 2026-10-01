@@ -16,5 +16,5 @@ export const ALLOW: string[] = [
 
 /** Names that pretend to be staff. Compared against the lowercased name key. */
 export const RESERVED_PATTERNS: RegExp[] = [
-  /\badmin/i, /\bmod(erator)?\b/i, /\bofficial\b/i, /\bhuli\s*(team|staff|official|admin)\b/i, /\bstaff\b/i, /\bsupport\b/i,
+  /\badmin/i, /\bmod(erator)?\b/i, /\bofficial\b/i, /\b(huli|kilo)\s*(team|staff|official|admin)\b/i, /\bstaff\b/i, /\bsupport\b/i,
 ];

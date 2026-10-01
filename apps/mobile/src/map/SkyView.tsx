@@ -23,7 +23,8 @@ export interface SkyViewProps {
 
 const BEARING_PER_PX = 0.35;
 const PITCH_PER_PX = 0.25;
-const MAX_PITCH = 70;
+// Straight down is 0. 85 looks almost level, so the horizon and sky show when you tilt up.
+const MAX_PITCH = 85;
 const AUTO_DEG_PER_S = 1.5;
 
 export const SkyView = forwardRef<SkyViewHandle, SkyViewProps>(function SkyView(

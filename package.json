@@ -1,8 +1,8 @@
 {
-  "name": "huli",
+  "name": "kilo",
   "private": true,
   "version": "0.1.0",
-  "description": "Huli: a daily Hawaiʻi geography game. Five places, five guesses, same for everyone.",
+  "description": "Kilo: a daily Hawaiʻi geography game. Five places, five guesses, same for everyone.",
   "license": "MIT",
   "packageManager": "pnpm@10.17.1",
   "engines": { "node": ">=20.19" },
