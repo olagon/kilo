@@ -1,7 +1,7 @@
 # dependencies and build output
 node_modules/
 dist/
-build/
+/build/
 .wrangler/
 *.tsbuildinfo
 .turbo/
@@ -39,5 +39,5 @@ apps/mobile/android/app/src/main/assets/capacitor.plugins.json
 .DS_Store
 *.log
 tools/pool-builder/cache/
-screens/
+/screens/
 apps/mobile/public/maplibre/
