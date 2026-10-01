@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#0a1a24"/>
+  <!-- a single serrated Koʻolau ridge, one color, and the dot sitting on the summit -->
+  <path fill="#eef5f3" d="M0 760 L110 650 L170 700 L260 560 L330 640 L420 500 L512 420 L600 520 L660 470 L740 600 L810 540 L900 680 L960 630 L1024 720 L1024 1024 L0 1024 Z"/>
+  <path fill="#0a1a24" fill-opacity="0.12" d="M512 420 L600 520 L660 470 L740 600 L810 540 L900 680 L960 630 L1024 720 L1024 1024 L512 1024 Z"/>
+  <circle cx="512" cy="330" r="64" fill="#f2a900"/>
+</svg>

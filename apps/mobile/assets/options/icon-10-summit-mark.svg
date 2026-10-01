@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#0b4f6c"/>
+  <!-- one mountain, one dot. The simplest mark that still says "find this place". -->
+  <path fill="#eef5f3" d="M512 300 L880 820 L144 820 Z"/>
+  <path fill="#0b4f6c" fill-opacity="0.16" d="M512 300 L880 820 L512 820 Z"/>
+  <!-- a snowline / cloud notch so it reads as a mountain, not a triangle -->
+  <path fill="#0b4f6c" d="M512 300 L640 480 L600 455 L560 500 L512 450 L464 500 L424 455 L384 480 Z" fill-opacity="0.22"/>
+  <circle cx="512" cy="300" r="76" fill="#f2a900" stroke="#0b4f6c" stroke-width="22"/>
+</svg>

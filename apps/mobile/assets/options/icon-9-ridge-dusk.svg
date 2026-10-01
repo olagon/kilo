@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a1a24"/><stop offset="0.62" stop-color="#1b4a66"/><stop offset="1" stop-color="#2a8fb5"/></linearGradient>
+    <linearGradient id="r1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f6b2c"/><stop offset="1" stop-color="#1b3f1a"/></linearGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#dusk)"/>
+  <!-- sun dot low over the ridge, exactly where you'd drop a pin -->
+  <circle cx="512" cy="455" r="88" fill="#f2a900"/>
+  <circle cx="512" cy="455" r="118" fill="#f2a900" fill-opacity="0.18"/>
+  <!-- far ridge, atmospheric -->
+  <path fill="#163e4c" d="M0 700 L120 600 L220 650 L340 520 L440 600 L512 540 L600 610 L700 520 L820 630 L920 580 L1024 660 L1024 1024 L0 1024 Z"/>
+  <!-- near ridge, serrated like the Koʻolau -->
+  <path fill="url(#r1)" d="M0 820 L90 740 L160 780 L250 660 L330 730 L420 600 L512 700 L590 630 L660 720 L760 640 L850 760 L940 700 L1024 780 L1024 1024 L0 1024 Z"/>
+  <path fill="#6aa65a" fill-opacity="0.45" d="M250 660 L330 730 L270 750 Z M420 600 L512 700 L440 715 Z M590 630 L660 720 L600 735 Z M760 640 L850 760 L770 770 Z"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#0a1a24"/>
+  <!-- mountain meets wave, same curve, mirrored; the dot at the meeting point -->
+  <path fill="#2f6b2c" d="M60 700 C 200 700, 330 330, 512 330 C 694 330, 824 700, 964 700 Z"/>
+  <path fill="#6aa65a" fill-opacity="0.35" d="M512 330 C 694 330, 824 700, 964 700 L 512 700 Z"/>
+  <path fill="#2a8fb5" d="M60 700 C 260 700, 300 880, 512 880 C 724 880, 764 700, 964 700 L 964 760 C 764 760, 724 940, 512 940 C 300 940, 260 760, 60 760 Z"/>
+  <circle cx="512" cy="700" r="62" fill="#f2a900" stroke="#0a1a24" stroke-width="16"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a1a24"/><stop offset="0.7" stop-color="#0b4f6c"/><stop offset="1" stop-color="#15617f"/></linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="0" fill="url(#sky)"/>
+  <!-- the dot as a low sun, exactly on the summit line -->
+  <circle cx="512" cy="430" r="92" fill="#f2a900"/>
+  <!-- back ridge -->
+  <path fill="#1e5a52" d="M0 720 L140 560 L250 640 L380 470 L512 600 L640 480 L760 590 L880 500 L1024 660 L1024 1024 L0 1024 Z"/>
+  <!-- front ridge, sea glass lit -->
+  <path fill="#2f6b2c" d="M0 820 L120 700 L260 760 L420 620 L560 740 L700 650 L840 760 L1024 700 L1024 1024 L0 1024 Z"/>
+  <path fill="#9ccf88" fill-opacity="0.35" d="M420 620 L560 740 L470 760 Z M700 650 L840 760 L740 775 Z M120 700 L260 760 L150 790 Z"/>
+  <!-- water -->
+  <path fill="#0b4f6c" d="M0 900 Q 256 870 512 900 T 1024 900 L1024 1024 L0 1024 Z"/>
+  <path fill="none" stroke="#eef5f3" stroke-opacity="0.25" stroke-width="8" d="M0 930 Q 256 900 512 930 T 1024 930"/>
+</svg>
