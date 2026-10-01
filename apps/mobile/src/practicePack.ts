@@ -3,7 +3,7 @@ import { load, save } from './storage';
 
 export interface Pack { version: number; updated: string; spots: Spot[] }
 
-const REMOTE = 'https://olagon.github.io/huli/practice-pack.json';
+const REMOTE = 'https://olagon.github.io/huli-geo/practice-pack.json';
 let cached: Promise<Pack | null> | null = null;
 
 /** Bundled pack, or a newer one fetched from GitHub Pages at most once a week. */
