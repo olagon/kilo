@@ -24,7 +24,7 @@ export async function shareDay(rec: DayRecord, playerName: string, units: 'mi' |
     fileUri = null;
   }
   try {
-    await Share.share({ title: `Kilo #${input.dayNumber}`, text, dialogTitle: 'Share your day', ...(fileUri ? { files: [fileUri] } : {}) });
+    await Share.share({ title: `Kilo #${input.dayNumber}`, text, dialogTitle: 'Share your score', ...(fileUri ? { files: [fileUri] } : {}) });
     return 'shared';
   } catch {
     try {

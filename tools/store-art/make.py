@@ -81,8 +81,8 @@ SLIDES = [
     ('round4-sky', 'Look around.\nYou can’t move.', 'Turn and tilt over real terrain. The clues are in front of you.', -3),
     ('round1-fullmap', 'Drop your pin.', 'Tap the islands. Drag to fine tune. Lock it in.', 0),
     ('practice4-reveal', 'How close were you?', 'Up to 5,000 points a round. The right island matters most.', 3),
-    ('summary', 'Share your day,\nspoiler free.', 'A result card your friends can’t resist.', 0),
-    ('leaderboard', 'Today and this month.', 'No account. Just a name.', -3),
+    ('summary', 'Share your score,\nnot the answers.', 'A result card that makes friends want to play.', 0),
+    ('leaderboard', 'Today and this month.', 'Free and open source. Zero tracking. No account, just a name.', -3),
     ('stats-real', 'The islands\nyou know best.', 'Streaks, best days, perfect rounds, and your average distance per island.', 0),
     ('practice-setup', 'Practice anytime.', 'Hundreds of extra spots. Filter by island or difficulty.', 3),
 ]

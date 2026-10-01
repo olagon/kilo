@@ -137,7 +137,7 @@
   "settings.data_saver_hint": "Lower resolution imagery, terrain off",
   "settings.replay": "Replay tutorial",
   "settings.privacy": "Privacy",
-  "settings.privacy_body": "Kilo stores your player name, a random id, your guesses, and your scores. Nothing else. No email, no location permission, no ads, no tracking.",
+  "settings.privacy_body": "Kilo stores your player name, a random id, your guesses, and your scores. Nothing else. No email, no location permission, no tracking.",
   "settings.delete": "Delete my scores and name",
   "settings.delete_confirm": "This removes your name and every score from the boards. There's no undo.",
   "settings.delete_yes": "Delete everything",

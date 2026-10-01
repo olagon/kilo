@@ -2,7 +2,7 @@
 
 **A daily Hawaiʻi geography game.** Every day at midnight Hawaiʻi time, everyone gets the same five places somewhere in the islands. You are dropped into a tilted satellite view over real terrain. You can turn and look around, but you can't move. Drop a pin on the map of the islands, lock it in, and score up to 5,000 points a round for being close. Share a spoiler free result and see how you rank today and this month.
 
-No accounts, no ads, no tracking, no location permission. You just pick a name.
+Free and open source, with zero tracking: no analytics, no advertising ID, no location permission. You just pick a name.
 
 Made by [Olin Lagon](https://github.com/olagon). Code is MIT. Imagery and map data have their own licenses, listed below.
 

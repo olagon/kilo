@@ -8,7 +8,7 @@ HOW IT WORKS
 • Five rounds a day, the same five for everyone
 • One try per day, so the leaderboard is fair
 • Daily and monthly boards
-• A spoiler free result you can share, with a card that shows your day
+• Share your score without giving away the answers, with a card that shows your day
 • Practice mode with hundreds of extra spots, filter by island or difficulty
 • Stats: streaks, best day, and the islands you know best
 • Optional daily reminder, scheduled on your phone
@@ -16,10 +16,9 @@ HOW IT WORKS
 MADE FOR THE ISLANDS
 Place names are written the way they should be, with the ʻokina and kahakō. Spots near heiau, burial sites, and other wahi pana stay out of the game. Kilo is a small way to spend time with ʻāina, learn place names, and have fun every day.
 
-NO ACCOUNT, NO ADS, NO TRACKING
-Pick a name. That's it. No email, no password, no location permission. Kilo never asks where you are. Delete your scores and name from inside the app any time.
+FREE, OPEN SOURCE, ZERO TRACKING
+Kilo is free and the whole thing is open source under the MIT license, on GitHub for anyone to read, run, or improve. There is no tracking of any kind: no analytics, no advertising ID, no location permission. Pick a name and play. No email, no password. Delete your scores and name from inside the app any time.
 
-OPEN SOURCE
-Kilo is MIT licensed and the code is on GitHub. Imagery is from USGS The National Map, terrain from AWS Open Data, and the map from OpenStreetMap contributors and OpenFreeMap.
+Imagery is from USGS The National Map, terrain from AWS Open Data, and the map from OpenStreetMap contributors and OpenFreeMap.
 
 Kilo means to watch, to observe, to study the signs. Think you know the islands?
