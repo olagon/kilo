@@ -1,3 +1,4 @@
+import { Wordmark } from '../components/Wordmark';
 import { TopBar } from '../components/ui';
 import { t } from '../i18n/t';
 
@@ -20,7 +21,7 @@ export function About() {
     <div className="screen">
       <div className="screen-pad">
         <TopBar title={t('about.title')} />
-        <h2 className="display" style={{ fontSize: '2.5rem', lineHeight: 1 }}>{t('app.name')}</h2>
+        <h2 style={{ margin: 0, lineHeight: 0 }}><Wordmark height={44} /></h2>
         <p style={{ margin: '12px 0 20px', fontSize: '1.0625rem' }}>{t('about.body')}</p>
         <p style={{ fontWeight: 500 }}>{t('about.made')}</p>
         <p style={{ marginBottom: 24 }}><a href={REPO} target="_blank" rel="noreferrer">{t('about.source')}</a></p>

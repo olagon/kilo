@@ -1,3 +1,4 @@
+import { Wordmark } from '../components/Wordmark';
 import { useState } from 'react';
 import { validateName } from '@huli/shared';
 import { api, ApiError } from '../api/client';
@@ -31,7 +32,7 @@ export function Welcome() {
   return (
     <div className="screen">
       <div className="screen-pad" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 12, maxWidth: 480, width: '100%', margin: '0 auto' }}>
-        <h1 className="display" style={{ fontSize: '3.5rem', lineHeight: 1 }}>{t('app.name')}</h1>
+        <h1 style={{ margin: 0, lineHeight: 0 }}><Wordmark height={64} /></h1>
         <p className="muted" style={{ fontSize: '1.125rem', marginBottom: 24 }}>{t('app.tagline')}</p>
         <h2 style={{ fontSize: '1.25rem', fontWeight: 600 }}>{t('welcome.title')}</h2>
         <p className="muted">{t('welcome.body')}</p>

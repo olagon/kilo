@@ -1,3 +1,4 @@
+import { Wordmark } from '../components/Wordmark';
 import { useEffect, useMemo } from 'react';
 import { longDateLabel } from '@huli/shared';
 import { SkyView } from '../map/SkyView';
@@ -38,7 +39,7 @@ export function Home() {
       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(10,26,36,0.55) 0%, rgba(10,26,36,0) 30%, rgba(10,26,36,0.2) 55%, rgba(10,26,36,0.92) 100%)', pointerEvents: 'none' }} />
 
       <div className="hud" style={{ top: 'calc(var(--safe-top) + 8px)', left: 20, right: 12, display: 'flex', alignItems: 'center', color: '#eef5f3' }}>
-        <h1 className="display" style={{ fontSize: '2rem', flex: 1 }}>{t('app.name')}</h1>
+        <h1 style={{ flex: 1, margin: 0, lineHeight: 0 }}><Wordmark height={30} /></h1>
         <button className="icon-btn" aria-label={t('home.settings')} onClick={() => go('settings')} style={{ color: '#eef5f3' }}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="12" cy="12" r="3" />

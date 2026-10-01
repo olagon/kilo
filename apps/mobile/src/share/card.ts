@@ -1,4 +1,5 @@
 import { tierForPoints, type ResultTier } from '@huli/shared';
+import { WORDMARK } from '../components/Wordmark';
 
 const TIER_COLOR: Record<ResultTier, string> = { green: '#4caf50', yellow: '#f2c94c', orange: '#f28c28', red: '#d7263d' };
 
@@ -68,8 +69,7 @@ export async function renderShareCard(c: CardInput): Promise<string> {
   // header
   ctx.fillStyle = '#eef5f3';
   ctx.textBaseline = 'alphabetic';
-  ctx.font = display(96);
-  ctx.fillText('Kilo', 72, 160);
+  drawWordmark(ctx, 72, 160, 100);
   ctx.font = ui(500, 36);
   ctx.fillStyle = 'rgba(238,245,243,0.75)';
   ctx.fillText(`#${c.dayNumber} · ${c.dateLabel}`, 72, 214);
@@ -119,6 +119,28 @@ export async function renderShareCard(c: CardInput): Promise<string> {
   ctx.fillText(c.link.replace(/^https?:\/\//, ''), 72, 1262);
 
   return canvas.toDataURL('image/png');
+}
+
+/** Draws the Kilo mark with its baseline at (x, y) and the given cap height in px. */
+function drawWordmark(ctx: CanvasRenderingContext2D, x: number, y: number, capPx: number) {
+  const capUnits = WORDMARK.originY - 40; // cap height in font units (origin is pad + cap)
+  const k = capPx / capUnits;
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(k, -k);
+  ctx.fillStyle = '#eef5f3';
+  for (const l of WORDMARK.letters) {
+    ctx.save();
+    ctx.translate(l.x, 0);
+    ctx.fill(new Path2D(l.d));
+    ctx.restore();
+  }
+  ctx.fill(new Path2D(WORDMARK.ring), 'evenodd');
+  ctx.fillStyle = '#f2a900';
+  ctx.beginPath();
+  ctx.arc(WORDMARK.dot.cx, WORDMARK.dot.cy, WORDMARK.dot.r, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
 }
 
 function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
