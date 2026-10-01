@@ -4,7 +4,7 @@
 
 Free and open source, with zero tracking: no analytics, no advertising ID, no location permission. You just pick a name.
 
-Made by [Olin Lagon](https://github.com/olagon). Code is MIT. Imagery and map data have their own licenses, listed below.
+[Watch the trailer](https://youtu.be/8Sak-XdWDYw). Made by [Olin Lagon](https://github.com/olagon). Code is MIT. Imagery and map data have their own licenses, listed below.
 
 ## How it's built
 
